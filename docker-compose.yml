@@ -1,14 +1,21 @@
 version: '3'
 
 services:
-  map:
+  osm:
     image: overv/openstreetmap-tile-server
     volumes:
-      - osm-data:/data/database/
+      - ./osm-data:/data/database/
+      - ./osm-tiles:/data/tiles/
     ports:
-      - "8080:80"
+      - "8181:80"
+      - "5433:5432"
     command: "run"
-
+    networks:
+      - n7m_osm_bridge
 volumes:
   osm-data:
+  osm-tiles:
+
+networks:
+  n7m_osm_bridge:
     external: true
