@@ -1,0 +1,1 @@
+docker run -e UPDATES=enabled -v /root/n7m/data/germany-latest.osm.pbf:/data/region.osm.pbf -v /root/n7m/data/germany.poly:/data/region.poly -v /root/osm/osm-data:/data/database/ -v /root/osm/osm-tiles:/data/tiles  overv/openstreetmap-tile-server import
